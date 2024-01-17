@@ -13,7 +13,7 @@ main().catch((err) => console.log(err));
 
 async function main() {
 
-  await mongoose.connect("mongodb+srv://userx:Test-123@cluster0.yl1d2cj.mongodb.net/todoListDB");
+  await mongoose.connect("mongodb://localhost:27017/todoListDB");
   
 }
 const itemsSchema = {
