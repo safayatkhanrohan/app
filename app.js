@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 const date = require(__dirname + "/date.js");
+require("dotenv").config();
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,10 +11,10 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 main().catch((err) => console.log(err));
-
 async function main() {
 
-  await mongoose.connect("mongodb://localhost:27017/todoListDB");
+  await mongoose.connect(process.env.MONGO_URL);
+  console.log("Connected to DB");
   
 }
 const itemsSchema = {
